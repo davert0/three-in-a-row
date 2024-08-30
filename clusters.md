@@ -4,11 +4,11 @@ Field, Cell, GameElement, GameElementsGenerator, GameElementsQueue
 Cluster2 - классы, представляющие собой поведение игры:
 DeleteRule, AddingBonusRule, UseBonusRule, MatchesSet
 
-Cluster3 - классы, определяющие акторов по отношению к игровому полю
-Player, Move, Bonus
+Cluster3 - классы, определяющие логику отображения игрового процесса
+Renderer
 
 Cluster4 - utility, статистика
-Statistic, GameLog
+Statistics, GameLog
 
 Cluster5 - infra классы, отвечающие за инициализацию и хранения стейта
-Game, GameFactory, SingleTon, GameWatcher
+Game, Engine
