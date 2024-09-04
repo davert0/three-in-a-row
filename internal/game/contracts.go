@@ -13,9 +13,6 @@ const (
 
 type (
 	Game interface {
-		// Init
-		// постусловие - созданы все ресурсы, требующиеся для запуска игры
-		Init() error
 
 		// Run
 		// предусловие - созданы ресурсы для запуска игры
@@ -35,11 +32,11 @@ type (
 		// предусловие - игровое поле не пустое
 		// постусловия - изменилось состояние поле
 		// постусловия - изменилось состояние очков игрока
-		ApplyRules() Status
+		ApplyRules(f field.Field) Status
 
 		// предусловие - на поле есть пустые клетки
 		// постусловие - пустые клетки заполнены
-		FillField()
+		FillField(f field.Field)
 
 		// предусловие - данные для ввода валидны
 		// постусловие - измененилось состояние поля
@@ -47,7 +44,7 @@ type (
 		Input(data InputData) error
 	}
 
-	EngineConstructor[Cell comparable] func(field field.Field[Cell], rules []rules.GameRule[Cell]) (Engine, error)
+	EngineConstructor func(field field.Field, rules []rules.GameRule) (Engine, error)
 
 	InputData interface{}
 

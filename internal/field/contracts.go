@@ -1,11 +1,11 @@
 package field
 
 type (
-	Field[Cell comparable] interface {
+	Field interface {
 		// запросы
 
 		// предусловие - поле не пустое
-		Cells() [][]Cell
+		Cells() [][]string
 
 		// команды
 
@@ -16,13 +16,13 @@ type (
 
 		// предусловие - поле не пустое
 		// постусловие - обновлено поле
-		UpdateCells([][]Cell) error
+		UpdateCells([][]string) error
 	}
 
 	// Constructor
 	// предусловие - X, Y положительные
 	// постусловие - создано поле размерами X на Y
-	Constructor[Cell comparable] func(sizeX, sizeY int) Field[Cell]
+	Constructor[Cell string] func(sizeX, sizeY int) Field
 )
 
 type (
