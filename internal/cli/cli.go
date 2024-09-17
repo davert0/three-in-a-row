@@ -1,4 +1,4 @@
 package cli
 
-type CLI interface {
+type CLI struct {
 }

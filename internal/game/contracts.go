@@ -2,13 +2,6 @@ package game
 
 import (
 	"three_in_row/internal/field"
-	"three_in_row/internal/rules"
-)
-
-const (
-	RulesApplied Status = iota
-	NothingChanged
-	Error
 )
 
 type (
@@ -41,10 +34,8 @@ type (
 		// предусловие - данные для ввода валидны
 		// постусловие - измененилось состояние поля
 		// постусловие - изменился журнал ходов
-		Input(data InputData) error
+		Input() (field.Coord, field.Coord, error)
 	}
-
-	EngineConstructor func(field field.Field, rules []rules.GameRule) (Engine, error)
 
 	InputData interface{}
 

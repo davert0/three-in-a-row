@@ -18,11 +18,6 @@ type (
 		// постусловие - обновлено поле
 		UpdateCells([][]string) error
 	}
-
-	// Constructor
-	// предусловие - X, Y положительные
-	// постусловие - создано поле размерами X на Y
-	Constructor[Cell string] func(sizeX, sizeY int) Field
 )
 
 type (
